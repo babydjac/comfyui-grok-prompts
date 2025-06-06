@@ -1,5 +1,9 @@
-from .ponyxl import PonyXL
-from .flux import Flux
+try:
+    from .ponyxl import PonyXL
+    from .flux import Flux
+except ImportError:  # fallback for running without package context
+    from ponyxl import PonyXL
+    from flux import Flux
 
 NODE_CLASS_MAPPINGS = {
     "PonyXL": PonyXL,
